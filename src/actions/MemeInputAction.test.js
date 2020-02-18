@@ -1,4 +1,4 @@
-import { fetchPostMeme, FETCH_POST_MEME_LOADING, FETCH_POST_MEME } from '../actions/memeInputAction';
+import { fetchPostMeme, FETCH_POST_MEME_LOADING, FETCH_POST_MEME } from './memeInputAction';
 
 jest.mock('../services/memeApi.js');
 

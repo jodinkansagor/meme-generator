@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import buffy1 from '../assets/Buffy1.jpg';
 import buffy2 from '../assets/Buffy2.jpg';
 import buffy3 from '../assets/Buffy3.jpeg';
 import styles from './MemeInputForm.css';
+import { fetchPostMeme } from '../actions/memeInputAction';
 
 
 const MemeInputForm = () => {
@@ -10,10 +12,19 @@ const MemeInputForm = () => {
   const [caption, setCaption] = useState('');
   const [image, setImage] = useState('');
 
+  const dispatch = useDispatch();
+
+  const meme = {
+    headline,
+    caption,
+    image
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
-
-  }
+    console.log(meme);
+    dispatch(fetchPostMeme(meme));
+  };
 
 
   return (
@@ -34,6 +45,7 @@ const MemeInputForm = () => {
         <input type="radio" value="buffy3" id="buffy3 " name={image} onChange={({ target }) => setImage(target.value)} />
         <label htmlFor="buffy3"><img src={buffy3} /></label>
       </section>
+      <button>Submit Your Meme!</button>
     </form>
   );
 };
