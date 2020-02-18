@@ -10,8 +10,8 @@ describe('get meme', () => {
     return action(dispatch)
       .then(() => {
         expect(dispatch).toHaveBeenCalledWith({ type: FETCH_GET_MEME_LOADING });
-        expect(dispatch).toHaveBeenCalledWith({ type: FETCH_GET_MEME });
+        expect(dispatch).toHaveBeenCalledWith({ type: FETCH_GET_MEME, payload: [{ headline: 'headline', caption: 'caption', image: 'image' }, { headline: 'headline2', caption: 'caption2', image: 'image2' }] });
       });
   });
-  
+
 });
