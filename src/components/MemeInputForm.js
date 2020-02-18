@@ -22,7 +22,6 @@ const MemeInputForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(meme);
     dispatch(fetchPostMeme(meme));
   };
 

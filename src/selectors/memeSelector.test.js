@@ -3,8 +3,10 @@ import { isLoadingPostMeme, getPostedMeme } from "./memeSelector";
 describe('meme selectors', () => {
   it('selects the post meme loading state', () => {
     const state = {
-      loading: true,
-      meme: null
+      post: {
+        loading: true,
+        meme: null
+      }
     };
 
     const loading = isLoadingPostMeme(state);
@@ -13,9 +15,11 @@ describe('meme selectors', () => {
 
   it('selects the post meme', () => {
     const state = {
-      loading: true,
-      meme: {
-        headline: 'headline', caption: 'caption', image: 'image' 
+      post: {
+        loading: true,
+        meme: {
+          headline: 'headline', caption: 'caption', image: 'image'
+        }
       }
     };
 

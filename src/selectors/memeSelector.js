@@ -1,2 +1,3 @@
-export const isLoadingPostMeme = state => state.loading;
-export const getPostedMeme = state => state.meme;
+export const isLoadingPostMeme = state => state.post.loading;
+export const getPostedMeme = state => state.post.meme;
+

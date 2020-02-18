@@ -1,10 +1,8 @@
 import { FETCH_POST_MEME_LOADING, FETCH_POST_MEME } from '../actions/memeInputAction';
-import { FETCH_GET_MEME_LOADING, FETCH_GET_MEME } from '../actions/memeListAction';
 
 const initialState = {
   loading: false,
   meme: null,
-  memeArray: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -13,10 +11,7 @@ export default function reducer(state = initialState, action) {
       return { ...state, loading: true };
     case FETCH_POST_MEME:
       return { ...state, loading: false, meme: action.payload };
-    case FETCH_GET_MEME_LOADING:
-      return { ...state, loading: true };
-    case FETCH_GET_MEME:
-      return { ...state, loading: false, memeArray: action.payload };
+
     default:
       return state;
   }
