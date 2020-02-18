@@ -1,4 +1,4 @@
-import { isLoadingPostMeme, getPostedMeme } from "./memeSelector";
+import { isLoadingPostMeme, getPostedMeme } from './memeSelector';
 
 describe('meme selectors', () => {
   it('selects the post meme loading state', () => {

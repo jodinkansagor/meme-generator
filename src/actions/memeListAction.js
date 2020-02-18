@@ -6,5 +6,5 @@ export const FETCH_GET_MEME = 'FETCH_GET_MEME';
 export const fetchGetMeme = () => dispatch => {
   dispatch({ type: FETCH_GET_MEME_LOADING });
   return getMeme()
-    .then(() => dispatch({ type: FETCH_GET_MEME }));
+    .then((memeArray) => dispatch({ type: FETCH_GET_MEME, payload: memeArray }));
 };

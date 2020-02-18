@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import buffy1 from '../assets/Buffy1.jpg';
-import buffy2 from '../assets/Buffy2.jpg';
-import buffy3 from '../assets/Buffy3.jpeg';
+// import buffy1 from '../assets/Buffy1.jpg';
+// import buffy2 from '../assets/Buffy2.jpg';
+// import buffy3 from '../assets/Buffy3.jpeg';
 import styles from './MemeInputForm.css';
 import { fetchPostMeme } from '../actions/memeInputAction';
+import { useHistory } from 'react-router-dom';
 
 
 const MemeInputForm = () => {
   const [headline, setHeadline] = useState('');
   const [caption, setCaption] = useState('');
   const [image, setImage] = useState('');
-
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const meme = {
@@ -23,6 +24,8 @@ const MemeInputForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(fetchPostMeme(meme));
+    history.replace('/');
+
   };
 
 
@@ -37,12 +40,12 @@ const MemeInputForm = () => {
 
       </section>
       <section className={styles.imagesInput}>
-        <input type="radio" value="buffy1" id="buffy1" name={image} onChange={({ target }) => setImage(target.value)} />
-        <label htmlFor="buffy1"><img src={buffy1} /></label>
-        <input type="radio" value="buffy2" id="buffy2 " name={image} onChange={({ target }) => setImage(target.value)} />
-        <label htmlFor="buffy2"><img src={buffy2} /></label>
-        <input type="radio" value="buffy3" id="buffy3 " name={image} onChange={({ target }) => setImage(target.value)} />
-        <label htmlFor="buffy3"><img src={buffy3} /></label>
+        <input type="radio" value="https://media.wired.com/photos/59266c61cefba457b0799ec0/master/w_2400,c_limit/Buffy-the-Vampire-Slayer_TA_TSDBUTH_FE123_H.jpg" id="buffy1" name={image} onChange={({ target }) => setImage(target.value)} />
+        <label htmlFor="buffy1"><img src='https://media.wired.com/photos/59266c61cefba457b0799ec0/master/w_2400,c_limit/Buffy-the-Vampire-Slayer_TA_TSDBUTH_FE123_H.jpg' /></label>
+        <input type="radio" value="https://imgix.bustle.com/2017/3/14/53bb87e4-0439-4dd0-9ce2-dcbd7c148828.jpg?w=970&h=546&fit=crop&crop=faces&auto=format&q=70" id="buffy2 " name={image} onChange={({ target }) => setImage(target.value)} />
+        <label htmlFor="buffy2"><img src='https://imgix.bustle.com/2017/3/14/53bb87e4-0439-4dd0-9ce2-dcbd7c148828.jpg?w=970&h=546&fit=crop&crop=faces&auto=format&q=70' /></label>
+        <input type="radio" value="https://api.time.com/wp-content/uploads/2015/02/buffy.jpeg?w=600&quality=85" id="buffy3 " name={image} onChange={({ target }) => setImage(target.value)} />
+        <label htmlFor="buffy3"><img src='https://api.time.com/wp-content/uploads/2015/02/buffy.jpeg?w=600&quality=85' /></label>
       </section>
       <button>Submit Your Meme!</button>
     </form>

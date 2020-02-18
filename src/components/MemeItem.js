@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Meme.css';
 
 const MemeItem = (meme) => (
 
-  <section>
-    <h1>{meme.headline}</h1>
-    <img src = {meme.image} />
-    <h1>{meme.caption}</h1>
+  <section className={styles.meme}>
+    <h1 className={styles.headline}>{meme.headline}</h1>
+    <img src={meme.image} />
+    <h1 className={styles.caption}>{meme.caption}</h1>
   </section>
 );
 
